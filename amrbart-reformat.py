@@ -58,4 +58,19 @@ EXAMPLE FORMAT OF AMRBART:
 '''
 
 # The format and example are from AMRBART: https://github.com/goodbai-nlp/AMRBART/blob/main/examples/data4generation.jsonl line 5
-# See paper: Graph Pre-training for AMR Parsing and Generation by Xuefeng Bai, Yulong Chen, and Yue Zhang (2022).
+# See paper: 
+'''
+@inproceedings{bai-etal-2022-graph,
+    title = "Graph Pre-training for {AMR} Parsing and Generation",
+    author = "Bai, Xuefeng  and
+      Chen, Yulong  and
+      Zhang, Yue",
+    booktitle = "Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = may,
+    year = "2022",
+    address = "Dublin, Ireland",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2022.acl-long.415",
+    pages = "6001--6015"
+}
+'''
