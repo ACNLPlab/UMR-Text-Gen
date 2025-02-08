@@ -1,2 +1,6 @@
-# AMR2UMR-Text-Gen
-How well do AMR-to-text generators work for UMR (without any fine-tuning, and then with fine-tuning)?
+# UMR-Text-Gen
+This repository includes relevant code from the paper "Generating Text from Uniform Meaning Representation."
+
+
+Our model checkpoints are available at the following link:
+https://drive.google.com/drive/folders/1aOsoBFJsnzJNjPE_EQNdHtXqD7ZClcuX?usp=sharing
