@@ -1,0 +1,33 @@
+#! /bin/sh
+#SBATCH --job-name=eval-eng-mt5
+#SBATCH --partition gpu-a100-q
+#SBATCH --gres=gpu:a100:1
+#SBATCH --cpus-per-task=8
+#SBATCH --output eval-eng-mt5-%j.out
+#SBATCH --error eval-eng-mt5-%j.err
+
+conda init
+conda activate /home/common/ACNLP/structadapt
+
+python -u test_eng_m.py \
+    --model_name_or_path  /home/common/ACNLP/m-AMR2Text/eng_doc_mt5 \
+    --target_lang eng \
+    --source_lang eng \
+    --do_predict \
+    --task graph2text \
+    --validation_file /home/common/ACNLP/m-AMR2Text/val.csv \
+    --output_dir /home/common/ACNLP/m-AMR2Text/outputs \
+    --per_device_eval_batch_size=8 \
+    --max_source_length=1024 \
+    --max_target_length=1024 \
+    --val_max_target_length=1024 \
+    --predict_with_generate \
+    --save_steps 10000 \
+    --max_val_samples 1000 \
+    --evaluation_strategy steps \
+    --eval_steps 10000 \
+    --load_best_model_at_end \
+    --metric_for_best_model bleu \
+    --save_total_limit 1 \
+    --adafactor \
+    --num_beams 5

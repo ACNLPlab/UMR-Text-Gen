@@ -1,0 +1,32 @@
+#!/bin/bash
+
+python -u run_seq2seq.py \
+    --model_name_or_path facebook/mbart-large-50 \
+    --source_lang en_XX \
+    --target_lang en_XX \
+    --learning_rate=1e-4 \
+    --num_train_epochs 15 \
+    --do_train \
+    --do_eval \
+    --task graph2text \
+    --train_file_silversent /home/common/ACNLP/umr_data/train/sent/all_sent_train_smelt.json \
+    --train_file_silveramr /home/common/ACNLP/umr_data/train/sent/all_sent_train_smelt.json \
+    --dev_file /home/common/ACNLP/umr_data/train/sent/all_sent_dev_smelt.json \
+    --output_dir all_sent_mbart \
+    --per_device_train_batch_size=8 \
+    --per_device_eval_batch_size=8 \
+    --gradient_accumulation_steps=2 \
+    --predict_with_generate \
+    --evaluation_strategy steps \
+    --logging_steps 50 \
+    --save_steps 1000 \
+    --text_column source \
+    --summary_column target \
+    --max_source_length 1024 \
+    --max_target_length 1024 \
+    --overwrite_cache \
+    --overwrite_output_dir \
+    --save_total_limit 1 \
+    --adafactor \
+    --ignore_data_skip \
+    --num_beams 5
